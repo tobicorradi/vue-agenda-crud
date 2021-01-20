@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent>
+  <form class="form" @submit.prevent>
     <div class="form__input-block">
       <label class="form__label" for="">Nombre:</label>
       <input
@@ -77,6 +77,9 @@ export default {
 };
 </script>
 <style>
+.form {
+  margin-bottom: 15px;
+}
 .form__input-block {
   margin-bottom: 10px;
 }

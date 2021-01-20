@@ -1,11 +1,13 @@
 <template>
-  <h1>Agenda Personal</h1>
-  <Form
-    @addContact="addContact"
-    :contacts="contacts"
-    :categories="categories"
-  />
-  <Table :contacts="contacts" />
+  <div class="container">
+    <h1>Agenda Personal</h1>
+    <Form
+      @addContact="addContact"
+      :contacts="contacts"
+      :categories="categories"
+    />
+    <Table :contacts="contacts" />
+  </div>
 </template>
 
 <script>
@@ -81,5 +83,10 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   margin-top: 60px;
+}
+.container {
+  max-width: 800px;
+  padding: 30px;
+  margin: 0 auto;
 }
 </style>
