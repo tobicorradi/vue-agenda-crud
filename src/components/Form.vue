@@ -86,7 +86,9 @@ export default {
 .form__input-block * {
   display: block;
 }
-.form__input {
+.form__input,
+td input,
+td select {
   width: 100%;
   padding: 10px;
   border-radius: 3px;

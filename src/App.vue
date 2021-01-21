@@ -82,7 +82,6 @@ export default {
     },
     isEditing(index) {
       this.contacts[index].editing = !this.contacts[index].editing;
-      console.log(this.contacts[index]);
     },
   },
 };

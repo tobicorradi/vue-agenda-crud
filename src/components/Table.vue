@@ -25,8 +25,12 @@
       <td>
         <span class="form__mobile-label">Categoría</span
         ><span v-if="!contact.editing">{{ contact.category }}</span>
-        <select v-else name="" id="">
-          <option v-for="category in categories" :key="category.name" value="">
+        <select v-model="contact.category" v-else name="" id="">
+          <option
+            v-for="category in categories"
+            :key="category.name"
+            :value="category.name"
+          >
             {{ category.name }}
           </option>
         </select>
