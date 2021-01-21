@@ -14,13 +14,22 @@
       v-for="(contact, index) in contacts"
       :key="contact.id"
     >
-      <td><span class="form__mobile-label">ID</span>{{ contact.id }}</td>
-      <td><span class="form__mobile-label">Nombre</span>{{ contact.name }}</td>
       <td>
-        <span class="form__mobile-label">Categoría</span>{{ contact.category }}
+        <span class="form__mobile-label">ID</span
+        ><span v-if="!contact.editing">{{ contact.id }}</span>
+        {{ contact.editing }}
       </td>
       <td>
-        <span class="form__mobile-label">Número</span>{{ contact.number }}
+        <span class="form__mobile-label">Nombre</span
+        ><span v-if="!contact.editing">{{ contact.name }}</span>
+      </td>
+      <td>
+        <span class="form__mobile-label">Categoría</span
+        ><span v-if="!contact.editing">{{ contact.category }}</span>
+      </td>
+      <td>
+        <span class="form__mobile-label">Número</span
+        ><span v-if="!contact.editing">{{ contact.number }}</span>
       </td>
       <td><button class="btn form__button">Favorito</button></td>
       <td>

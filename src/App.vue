@@ -6,7 +6,7 @@
       :contacts="contacts"
       :categories="categories"
     />
-    <Table :contacts="contacts" @deleteContact="deleteContact" />
+    <Table :contacts="contacts" @isEditing="isEditing" @deleteContact="deleteContact" />
   </div>
 </template>
 
@@ -76,7 +76,8 @@ export default {
       this.contacts.splice(index, 1);
     },
     isEditing(index) {
-      this.contacts[index].editing = true;
+      this.contacts[index].editing = !this.contacts[index].editing;
+      console.log(this.contacts[index])
     },
   },
 };
