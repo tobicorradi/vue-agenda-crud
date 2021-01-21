@@ -9,7 +9,11 @@
       <th></th>
       <th></th>
     </tr>
-    <tr v-for="contact in contacts" :key="contact.id">
+    <tr
+      class="table__content"
+      v-for="(contact, index) in contacts"
+      :key="contact.id"
+    >
       <td><span class="form__mobile-label">ID</span>{{ contact.id }}</td>
       <td><span class="form__mobile-label">Nombre</span>{{ contact.name }}</td>
       <td>
@@ -18,9 +22,13 @@
       <td>
         <span class="form__mobile-label">Número</span>{{ contact.number }}
       </td>
-      <td><button class="form__button">Favorito</button></td>
-      <td><button class="form__button">Editar</button></td>
-      <td><button class="form__button">Eliminar</button></td>
+      <td><button class="btn form__button">Favorito</button></td>
+      <td><button class="btn form__button">Editar</button></td>
+      <td>
+        <button @click="deleteContact(index)" class="btn form__button">
+          Eliminar
+        </button>
+      </td>
     </tr>
   </table>
 </template>
@@ -30,21 +38,27 @@ export default {
   props: {
     contacts: Object,
   },
+  methods: {
+    deleteContact(index) {
+      this.$emit("deleteContact", index);
+    },
+  },
 };
 </script>
 <style>
 table {
   width: 100%;
+  border-spacing: 11px;
 }
 .form__mobile-label {
   display: none;
 }
-.form__button {
-  padding: 10px 30px;
-}
 @media (max-width: 768px) {
   .form__mobile-label {
     display: block;
+    font-size: 12px;
+    color: #828282;
+    font-weight: 100;
   }
   .table__header {
     display: none;
@@ -54,16 +68,26 @@ table {
     margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
+    font-size: 16px;
+    font-weight: 700;
   }
   tr {
     display: block;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
+    padding: 18px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   }
-  tr:nth-child(odd) {
-    background-color: #f3f3f3;
-  }
-  .form__button {
-    width: 100%;
-  }
+}
+.table__header th {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  color: #a0a0a0;
+}
+td {
+  font-size: 15px;
+}
+.table__content {
+  margin-bottom: 10px;
 }
 </style>

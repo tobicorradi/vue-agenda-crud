@@ -3,7 +3,6 @@
     <div class="form__input-block">
       <label class="form__label" for="">Nombre:</label>
       <input
-        required
         v-model="name"
         type="text"
         placeholder="Carlos Rodriguez"
@@ -15,7 +14,6 @@
     <div class="form__input-block">
       <label class="form__label" for="">Categoría:</label>
       <select
-        required
         class="form__input"
         name="category"
         id="category"
@@ -34,7 +32,6 @@
     <div class="form__input-block">
       <label class="form__label" for="">Número:</label>
       <input
-        required
         v-model="number"
         type="number"
         name="number"
@@ -43,7 +40,7 @@
         class="form__input"
       />
     </div>
-    <button @click="addContact" type="submit">Agregar</button>
+    <button class="btn" @click="addContact" type="submit">Agregar</button>
   </form>
 </template>
 <script>
@@ -70,6 +67,9 @@ export default {
           number: this.number,
         };
         this.$emit("addContact", newContact);
+        this.name = "";
+        this.category = "";
+        this.number = null;
       }
       return false;
     },
@@ -78,7 +78,7 @@ export default {
 </script>
 <style>
 .form {
-  margin-bottom: 15px;
+  margin-bottom: 45px;
 }
 .form__input-block {
   margin-bottom: 10px;
@@ -89,6 +89,9 @@ export default {
 .form__input {
   width: 100%;
   padding: 10px;
+  border-radius: 3px;
+  border: 1px solid #c3c3c3;
+  background-color: white;
 }
 .form__label {
   margin-bottom: 5px;

@@ -6,7 +6,7 @@
       :contacts="contacts"
       :categories="categories"
     />
-    <Table :contacts="contacts" />
+    <Table :contacts="contacts" @deleteContact="deleteContact" />
   </div>
 </template>
 
@@ -69,6 +69,9 @@ export default {
         number: newContact.number,
       });
     },
+    deleteContact(index) {
+      this.contacts.splice(index, 1);
+    },
   },
 };
 </script>
@@ -82,11 +85,22 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 10px;
 }
 .container {
   max-width: 800px;
   padding: 30px;
   margin: 0 auto;
+}
+.btn {
+  padding: 10px 30px;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .btn {
+    max-width: 100px;
+    font-size: 13px;
+    padding: 10px 15px;
+  }
 }
 </style>
