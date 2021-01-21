@@ -19,7 +19,7 @@
         id="category"
         v-model="category"
       >
-        <option value="Neutro" selected="true">Selecciona una categoría</option>
+        <option value="" selected>Seleccione una categoría...</option>
         <option
           v-for="category in categories"
           :key="category.categoryValue"

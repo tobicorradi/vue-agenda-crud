@@ -10,6 +10,7 @@
       :categories="categories"
       :contacts="contacts"
       @isEditing="isEditing"
+      @doneEditing="doneEditing"
       @deleteContact="deleteContact"
     />
   </div>
@@ -83,6 +84,9 @@ export default {
     isEditing(index) {
       this.contacts[index].editing = !this.contacts[index].editing;
     },
+    doneEditing(index){
+      this.contacts[index].editing = false
+    }
   },
 };
 </script>

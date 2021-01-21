@@ -1,5 +1,5 @@
 <template>
-  <table>
+  <table v-if="contacts.length">
     <tr class="table__header">
       <th>ID</th>
       <th>Nombre</th>
@@ -41,9 +41,14 @@
         <input v-else type="number" v-model="contact.number" />
       </td>
       <td><button class="btn form__button">Favorito</button></td>
-      <td>
+      <td v-if="!contact.editing">
         <button @click="isEditing(index)" class="btn form__button">
           Editar
+        </button>
+      </td>
+      <td v-else>
+        <button @click="doneEditing(index)" class="btn form__button">
+          Confimar
         </button>
       </td>
       <td>
@@ -53,6 +58,9 @@
       </td>
     </tr>
   </table>
+  <div v-else>
+    <p>No tienes ningún contacto</p>
+  </div>
 </template>
 <script>
 export default {
@@ -67,6 +75,9 @@ export default {
     },
     isEditing(index) {
       this.$emit("isEditing", index);
+    },
+    doneEditing(index) {
+      this.$emit("doneEditing", index);
     },
   },
 };
