@@ -15,21 +15,26 @@
       :key="contact.id"
     >
       <td>
-        <span class="form__mobile-label">ID</span
-        ><span v-if="!contact.editing">{{ contact.id }}</span>
-        {{ contact.editing }}
+        <span class="form__mobile-label">ID</span><span>{{ contact.id }}</span>
       </td>
       <td>
         <span class="form__mobile-label">Nombre</span
         ><span v-if="!contact.editing">{{ contact.name }}</span>
+        <input v-else type="text" v-model="contact.name" />
       </td>
       <td>
         <span class="form__mobile-label">Categoría</span
         ><span v-if="!contact.editing">{{ contact.category }}</span>
+        <select v-else name="" id="">
+          <option v-for="category in categories" :key="category.name" value="">
+            {{ category.name }}
+          </option>
+        </select>
       </td>
       <td>
         <span class="form__mobile-label">Número</span
         ><span v-if="!contact.editing">{{ contact.number }}</span>
+        <input v-else type="number" v-model="contact.number" />
       </td>
       <td><button class="btn form__button">Favorito</button></td>
       <td>
@@ -50,6 +55,7 @@ export default {
   name: "Table",
   props: {
     contacts: Object,
+    categories: Object,
   },
   methods: {
     deleteContact(index) {

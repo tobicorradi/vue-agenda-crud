@@ -6,7 +6,12 @@
       :contacts="contacts"
       :categories="categories"
     />
-    <Table :contacts="contacts" @isEditing="isEditing" @deleteContact="deleteContact" />
+    <Table
+      :categories="categories"
+      :contacts="contacts"
+      @isEditing="isEditing"
+      @deleteContact="deleteContact"
+    />
   </div>
 </template>
 
@@ -77,7 +82,7 @@ export default {
     },
     isEditing(index) {
       this.contacts[index].editing = !this.contacts[index].editing;
-      console.log(this.contacts[index])
+      console.log(this.contacts[index]);
     },
   },
 };
@@ -103,7 +108,6 @@ export default {
   padding: 10px 30px;
   width: 100%;
   cursor: pointer !important;
-
 }
 @media (min-width: 768px) {
   .btn {
