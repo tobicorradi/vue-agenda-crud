@@ -50,12 +50,14 @@ export default {
           name: "Tobías Corradi",
           category: "Amigo",
           number: 1559050654,
+          editing: false,
         },
         {
           id: 2,
           name: "Carlos",
           category: "Trabajo",
           number: 45860654,
+          editing: false,
         },
       ],
     };
@@ -67,10 +69,14 @@ export default {
         name: newContact.name,
         category: newContact.category,
         number: newContact.number,
+        editing: false,
       });
     },
     deleteContact(index) {
       this.contacts.splice(index, 1);
+    },
+    isEditing(index) {
+      this.contacts[index].editing = true;
     },
   },
 };
@@ -95,6 +101,8 @@ export default {
 .btn {
   padding: 10px 30px;
   width: 100%;
+  cursor: pointer !important;
+
 }
 @media (min-width: 768px) {
   .btn {

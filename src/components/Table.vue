@@ -23,7 +23,11 @@
         <span class="form__mobile-label">Número</span>{{ contact.number }}
       </td>
       <td><button class="btn form__button">Favorito</button></td>
-      <td><button class="btn form__button">Editar</button></td>
+      <td>
+        <button @click="isEditing(index)" class="btn form__button">
+          Editar
+        </button>
+      </td>
       <td>
         <button @click="deleteContact(index)" class="btn form__button">
           Eliminar
@@ -41,6 +45,9 @@ export default {
   methods: {
     deleteContact(index) {
       this.$emit("deleteContact", index);
+    },
+    isEditing(index) {
+      this.$emit("isEditing", index);
     },
   },
 };
